@@ -6,10 +6,6 @@ export class Pairs {
         return this._arr;
     }
 
-    setPairs(pairs) {
-        this._arr = pairs;
-    }
-
     getById(id) {
         return this._arr[id];
     }
@@ -26,7 +22,7 @@ export class Pairs {
 
     //перевірка синтаксісу пари ім'я-значення
     isValid(value) {
-        let pairRegex = /^\w+\s*=\s*\w+$/; // ^[\p{L}\d]+$
+        let pairRegex = /^[\w|а-яА-ЯёЁ]+\s*=\s*[\w|а-яА-ЯёЁ]+$/; // ^[\p{L}\d]+$
         return pairRegex.test(value)
     }
 

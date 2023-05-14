@@ -21,12 +21,26 @@ body {
     border-color: black;
     border-width: 1px;
     height: 200px;
+    overflow-y: auto;
 }
 
 .form-inner-container {
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+
+.value-pair-list ul li {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    vertical-align: center;
+}
+
+.value-pair-list ul{
+    margin: 5px;
+    padding: 0;
 }
 
 .button-container {
@@ -69,7 +83,6 @@ button {
     display: flex;
     flex-direction: row;
     width: 300px;
-    background-color: orange;
 }
 
 .modal {
@@ -105,4 +118,60 @@ button {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+/*desktop screen resizing*/
+@media screen and (max-width: 600px) {
+    .form-container {
+        top: 10px;
+        min-width: 248px;
+        height: 100%;
+    }
+
+    .form-container div {
+        width: 100%;
+    }
+
+    .button-container {
+        position: static;
+        margin-top: 20px;
+    }
+
+    #add {
+        position: static;
+        align-self: center;
+        width: 100%;
+        padding: 5px 0;
+        margin-bottom: -20px;
+    }
+
+    .input-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #pair-input {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .button-container button{
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .label {
+        margin-top: 0;
+    }
 }

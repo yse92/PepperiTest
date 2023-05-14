@@ -1,0 +1,109 @@
+/*iPhone*/
+@media    only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+    .form-container {
+        align-self: center;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+    }
+    .form-container * {
+        width: 80%;
+        align-self: center;
+        text-align: center;
+    }
+    .form-container div {
+        width: 100%;
+    }
+
+    .button-container {
+        position: static;
+        margin-top: 20px;
+    }
+
+    #subtitle {
+        margin: 0;
+        font-size: 36px;
+    }
+
+    #add {
+        position: static;
+        align-self: center;
+        width: 100%;
+        padding: 5px 0;
+        margin-bottom: -20px;
+        font-size: 24px;
+    }
+
+    .input-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #pair-input {
+        margin-bottom: 10px;
+        width: 95%;
+        font-size: 36px;
+        padding: 0;
+    }
+
+    .button-container button{
+        width: 100%;
+        padding: 5px 0;
+        font-size: 24px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .label {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    .value-pair-list {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .value-pair-list ul {
+        width: 100%;
+        list-style: none;
+        margin: 0;
+    }
+
+    .value-pair-list ul li {
+        font-size: 24px;
+        width: 100%;
+        margin-top: 5px;
+        text-align: center;
+        display: flex;
+        vertical-align: center;
+    }
+
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        align-self: center;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    button {
+        width: 80%;
+    }
+
+    .form-inner-container {
+        height: 100%;
+    }
+}

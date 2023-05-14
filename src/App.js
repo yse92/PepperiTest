@@ -1,7 +1,8 @@
+import {Pairs} from "./Pairs.js";
 
 class App {
     constructor() {
-        this.pairs = [];
+        this.pairs = new Pairs([]);
         this.pairsList = document.getElementById('pairs-list');
         this.pairInput = document.getElementById('pair-input');
         this.modal = document.getElementById("myModal");
@@ -13,55 +14,34 @@ class App {
     }
 
     sortByValue() {
-        this.pairs.sort(function(a, b) {
-            let nameA = a.value.toUpperCase();
-            let nameB = b.value.toUpperCase();
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
-        });
+        this.pairs.sortByValue();
         this.renderPairsList();
     }
 
     sortByName() {
-        this.pairs.sort(function(a, b) {
-            let nameA = a.name.toUpperCase();
-            let nameB = b.name.toUpperCase();
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
-        });
+        this.pairs.sortByName();
         this.renderPairsList();
     }
 
     renderPairsList() {
         this.pairsList.innerHTML = "";
-        for (let i = 0; i < this.pairs.length; i++) {
+        for (let i = 0; i < this.pairs.getPairs().length; i++) {
             let li = document.createElement("li");
             li.innerHTML = `<input type="checkbox" class="checkbox" onclick="selectOne()" 
-            value="${i}"> ${this.pairs[i].name} = ${this.pairs[i].value}`;
+            value="${i}"> ${this.pairs.getById(i).name} = ${this.pairs.getById(i).value}`;
             this.pairsList.appendChild(li);
         }
     }
 
     addPair() {
         let input = this.pairInput.value.trim();
-        let pairRegex = /^\w+\s*=\s*\w+$/;
-        if (pairRegex.test(input)) {
+        if (this.pairs.isValid(input)) {
             let pair = input.split('=');
-            this.pairs.push({name: pair[0].trim(), value: pair[1].trim()});
+            this.pairs.addPair({name: pair[0].trim(), value: pair[1].trim()});
             this.renderPairsList();
             this.pairInput.value = "";
         } else {
-            alert("Invalid name-value pair format");
+            alert("Недійсний формат пари ім’я-значення");
         }
     }
 
@@ -69,7 +49,7 @@ class App {
         let checkboxes = this.pairsList.getElementsByTagName("input");
         for (let i = checkboxes.length - 1; i >= 0; i--) {
             if (checkboxes[i].checked) {
-                this.pairs.splice(i, 1);
+                this.pairs.deletePair(i);
                 this.pairsList.removeChild(checkboxes[i].parentNode);
             }
         }
@@ -94,7 +74,7 @@ class App {
 
     convertToXml() {
         let xml = '<root>' + '\n';
-        for (let pair of this.pairs) {
+        for (let pair of this.pairs.getPairs()) {
             xml += `<${pair.name}>${pair.value}</${pair.name}>` + '\n';
         }
         xml += '</root>';
