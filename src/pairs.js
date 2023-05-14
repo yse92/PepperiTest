@@ -1,32 +1,38 @@
-function Pairs(arr) {
-    let _arr = arr;
-
-    this.getPairs = function() {
-        return _arr;
-    };
-
-    this.setPairs = function (pairs) {
-        _arr = pairs;
+export class Pairs {
+    constructor(arr) {
+        this._arr = arr;
     }
-    //додавання пар зі списку
-    this.addPair = function(pair) {
-        _arr.push(pair);
+    getPairs() {
+        return this._arr;
+    }
+
+    setPairs(pairs) {
+        this._arr = pairs;
+    }
+
+    getById(id) {
+        return this._arr[id];
+    }
+
+    //додавання пари до списку
+    addPair(pair) {
+        this._arr.push(pair);
     }
 
     //функція видалення пар зі списку
-    this.deletePair = function(id) {
-        _arr.splice(id, 1);
+    deletePair(id) {
+        this._arr.splice(id, 1);
     }
 
     //перевірка синтаксісу пари ім'я-значення
-    this.isValid = function(value) {
+    isValid(value) {
         let pairRegex = /^\w+\s*=\s*\w+$/; // ^[\p{L}\d]+$
         return pairRegex.test(value)
     }
 
     //сортування за значенням
-    this.sortByValue = function() {
-        _arr.sort((a, b) => {
+    sortByValue() {
+        this._arr.sort((a, b) => {
             const nameA = a.value.toUpperCase();
             const nameB = b.value.toUpperCase();
             return nameA.localeCompare(nameB);
@@ -34,13 +40,11 @@ function Pairs(arr) {
     }
 
     //сортування за ім'ям
-    this.sortByName = function () {
-        _arr.sort((a, b) => {
+    sortByName() {
+        this._arr.sort((a, b) => {
             const nameA = a.name.toUpperCase();
             const nameB = b.name.toUpperCase();
             return nameA.localeCompare(nameB);
         });
     }
 }
-
-export { Pairs };
