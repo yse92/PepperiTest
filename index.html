@@ -13,7 +13,7 @@
         <span class="label">Name/Value Pair</span>
         <div class="input-section">
             <input id="pair-input">
-            <button id="add">Add</button>
+            <button id="add" onclick="addPair()">Add</button>
         </div>
         <span class="label">Name/Value Pair List</span>
         <div class="form-inner-container">
@@ -21,10 +21,10 @@
                 <ul id="pairs-list"></ul>
             </div>
             <div class="button-container">
-                <button id="sort-by-name-button">Sort by name</button>
-                <button id="sort-by-value-button">Sort by value</button>
-                <button id="delete-button">Delete</button>
-                <button id="show-xml-button">Show XML</button>
+                <button id="sort-by-name-button" onclick="sortByName()">Sort by name</button>
+                <button id="sort-by-value-button" onclick="sortByValue()">Sort by value</button>
+                <button id="delete-button" onclick="deletePairs()">Delete</button>
+                <button id="show-xml-button" onclick="convertToXml()">Show XML</button>
             </div>
         </div>
     </div>
