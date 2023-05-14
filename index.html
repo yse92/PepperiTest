@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pepperi</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="src/interface.js" defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <span id="subtitle">Test</span>
+        <span class="label">Name/Value Pair</span>
+        <div class="input-section">
+            <input id="pair-input">
+            <button id="add">Add</button>
+        </div>
+        <span class="label">Name/Value Pair List</span>
+        <div class="form-inner-container">
+            <div class="value-pair-list">
+                <ul id="pairs-list"></ul>
+            </div>
+            <div class="button-container">
+                <button id="sort-by-name-button">Sort by name</button>
+                <button id="sort-by-value-button">Sort by value</button>
+                <button id="delete-button">Delete</button>
+                <button id="show-xml-button">Show XML</button>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <p id="resultText"></p>
+        </div>
+    </div>
+</body>
+</html>
